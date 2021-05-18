@@ -31,6 +31,7 @@ class OrganizationPermission(SentryPermission):
     scope_map = {
         "GET": ["org:read", "org:write", "org:admin"],
         "POST": ["org:write", "org:admin"],
+        "PATCH": ["org:write", "org:admin"],
         "PUT": ["org:write", "org:admin"],
         "DELETE": ["org:admin"],
     }
