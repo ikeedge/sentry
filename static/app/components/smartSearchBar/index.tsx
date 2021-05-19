@@ -37,6 +37,8 @@ import withApi from 'app/utils/withApi';
 import withOrganization from 'app/utils/withOrganization';
 import CreateSavedSearchButton from 'app/views/issueList/createSavedSearchButton';
 
+import renderQuery from '../dreamSearch/renderer';
+
 import SearchDropdown from './searchDropdown';
 import {ItemType, SearchGroup, SearchItem} from './types';
 import {
@@ -1140,11 +1142,14 @@ class SmartSearchBar extends React.Component<Props, State> {
           {inlineLabel}
         </SearchLabel>
 
-        {useFormWrapper ? (
-          <StyledForm onSubmit={this.onSubmit}>{input}</StyledForm>
-        ) : (
-          input
-        )}
+        <InputWrapper>
+          <ShadowText>{renderQuery(this.state.query)}</ShadowText>
+          {useFormWrapper ? (
+            <StyledForm onSubmit={this.onSubmit}>{input}</StyledForm>
+          ) : (
+            input
+          )}
+        </InputWrapper>
         <StyledButtonBar gap={0.5}>
           {this.state.query !== '' && (
             <InputButton
@@ -1328,17 +1333,45 @@ const StyledForm = styled('form')`
   flex-grow: 1;
 `;
 
+const InputWrapper = styled('div')`
+  width: 100%;
+  height: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+`;
+
+const ShadowText = styled('div')`
+  white-space: pre;
+  position: absolute;
+  top: 0;
+  left: ${space(1)};
+  right: 0;
+  bottom: 0;
+  user-select: none;
+  line-height: 40px;
+  font-size: ${p => p.theme.fontSizeSmall};
+  font-family: ${p => p.theme.text.familyMono};
+`;
+
 const StyledInput = styled('input')`
-  color: ${p => p.theme.textColor};
+  position: relative;
+  top: -1px;
+  color: transparent;
   background: transparent;
   border: 0;
   outline: none;
-  font-size: ${p => p.theme.fontSizeMedium};
   width: 100%;
-  height: 40px;
-  line-height: 40px;
+  height: 25px;
+  line-height: 30px;
   padding: 0 0 0 ${space(1)};
+  caret-color: ${p => p.theme.textColor};
+  font-size: ${p => p.theme.fontSizeSmall};
+  font-family: ${p => p.theme.text.familyMono};
 
+  &::selection {
+    background: rgba(0, 0, 0, 0.2);
+  }
   &::placeholder {
     color: ${p => p.theme.formPlaceholder};
   }
