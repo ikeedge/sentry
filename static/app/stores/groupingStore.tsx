@@ -72,7 +72,7 @@ export type Fingerprint = {
   children: Array<ChildFingerprint>;
 };
 
-type ChildFingerprint = {
+export type ChildFingerprint = {
   childId: string;
   childLabel?: string;
   eventCount?: number;
