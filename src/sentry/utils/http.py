@@ -64,7 +64,7 @@ def is_same_domain(url1, url2):
 
 
 def get_origins(project=None):
-    if settings.SENTRY_ALLOW_ORIGIN == "*":
+    if settings.SENTRY_ALLOW_ORIGIN in ("*", None):
         return frozenset(["*"])
 
     if settings.SENTRY_ALLOW_ORIGIN:
