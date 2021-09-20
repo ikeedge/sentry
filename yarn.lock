@@ -3147,10 +3147,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-mentions@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@types/react-mentions/-/react-mentions-4.1.0.tgz#876d4ce9655206acebff4eda8f34149ab00e8b64"
-  integrity sha512-HwYX96mVzH47b+vUZLHea7gSHTheW7mqcHjxaoc+KBTBFaLlXmF4fj56LeJVatBYwgwW8GjQCqacIPwGXNBRnA==
+"@types/react-mentions@4.1.4":
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/@types/react-mentions/-/react-mentions-4.1.4.tgz#1946c9701e29e19c0d8c897af6f29492fbc7e092"
+  integrity sha512-YotG4kzzVIlkn89ePlVqY29PV+slJHvywMqNyxPYwthgi7shA1QTPluhIV/jnp8rdkeR2FmbGl3J0dt8/5LMmA==
   dependencies:
     "@types/react" "*"
 
